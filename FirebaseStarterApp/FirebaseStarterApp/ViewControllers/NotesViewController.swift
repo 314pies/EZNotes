@@ -61,7 +61,8 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell") as!NoteTableViewCell
-        cell.setTitle(titleText: Notes[indexPath.row].Title)
+        let cellTitle = "-" + Notes[indexPath.row].Title;
+        cell.setTitle(titleText: cellTitle)
         return cell
     }
     
@@ -74,6 +75,28 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             (controller as! NoteEditorViewController).NoteText = Notes[indexPath.row].Context
             //(controller as! NoteEditorViewController).EditingText.text = Notes[indexPath.row].Context
             present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool{
+        return true
+    }
+    
+    //Delete Note
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if(editingStyle == .delete){
+            let userUID = FirebaseAuthManager.Singleton.UserUID
+            let NotesID = Notes[indexPath.row].ID
+            let db = Firestore.firestore()
+            db.collection("users").document(userUID).collection("Notes").document(NotesID).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    self.fetchNotes()
+                    print("Document successfully removed!")
+                }
+            }
+            print("Deleted")
         }
     }
     

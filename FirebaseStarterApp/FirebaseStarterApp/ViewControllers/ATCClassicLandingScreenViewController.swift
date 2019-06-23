@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ATCClassicLandingScreenViewController: UIViewController {
     @IBOutlet var logoImageView: UIImageView!
@@ -26,16 +27,22 @@ class ATCClassicLandingScreenViewController: UIViewController {
     private let buttonFont = UIFont.boldSystemFont(ofSize: 24)
 
     override func viewDidLoad() {
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        // Enable offline data persistence
+        let db = Firestore.firestore()
+        db.settings = settings
+        
         super.viewDidLoad()
         logoImageView.image = UIImage.localImage("logo", template: true)
         logoImageView.tintColor = tintColor
 
         titleLabel.font = titleFont
-        titleLabel.text = "Welcome to your app"
+        titleLabel.text = "Welcome to EZNotes"
         titleLabel.textColor = tintColor
 
         subtitleLabel.font = subtitleFont
-        subtitleLabel.text = "Start your iOS app with this Firebase Swift Starter Kit."
+        subtitleLabel.text = "Write Once, Sync/Remind Anywhere!"
         subtitleLabel.textColor = subtitleColor
 
         loginButton.setTitle("Log in", for: .normal)
