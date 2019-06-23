@@ -112,7 +112,7 @@ class ATCClassicLoginScreenViewController: UIViewController {
                 let vc = storyboard.instantiateViewController(withIdentifier: "NotesView") as UIViewController
                 self.present(vc, animated: true, completion: nil)
             } else {
-                message = "There was an error."
+                message = "Failed to log in."
             }
             let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

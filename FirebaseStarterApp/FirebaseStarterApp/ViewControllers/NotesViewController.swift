@@ -84,4 +84,22 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             present(controller, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func onSighnOutClicked(_ sender: Any) {
+        
+        var message = "";
+        FirebaseAuthManager.Singleton.signOut(){[weak self] (success) in
+            guard let `self` = self else { return }
+            if(success){
+                
+                self.dismiss(animated: true, completion: nil)
+                message = "Logout success."
+            }else{
+                message = "Log out failed."
+            }
+            //let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            //alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        }
+    }
+    
 }
