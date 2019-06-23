@@ -108,6 +108,9 @@ class ATCClassicLoginScreenViewController: UIViewController {
             var message: String = ""
             if (success) {
                 message = "User was sucessfully logged in."
+                let storyboard = UIStoryboard(name: "NotesStoryboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "NotesView") as UIViewController
+                self.present(vc, animated: true, completion: nil)
             } else {
                 message = "There was an error."
             }

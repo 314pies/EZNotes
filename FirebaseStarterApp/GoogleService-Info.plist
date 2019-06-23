@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>765455555560-tmg9a7artur9mcrkpurb1d5e6lhoago5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.765455555560-tmg9a7artur9mcrkpurb1d5e6lhoago5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAiuJqJhBh1yCemMmITbbPS8m1rcl8Qwmk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>765455555560</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Ian.EZNotes</string>
+	<key>PROJECT_ID</key>
+	<string>eznotes-acab6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eznotes-acab6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:765455555560:ios:54b2486a3583e0a1</string>
+	<key>DATABASE_URL</key>
+	<string>https://eznotes-acab6.firebaseio.com</string>
+</dict>
+</plist>
