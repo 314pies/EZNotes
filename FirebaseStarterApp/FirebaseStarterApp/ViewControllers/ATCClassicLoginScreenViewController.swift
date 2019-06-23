@@ -101,7 +101,7 @@ class ATCClassicLoginScreenViewController: UIViewController {
     }
 
     @objc func didTapLoginButton() {
-        let loginManager = FirebaseAuthManager()
+        let loginManager = FirebaseAuthManager.Singleton
         guard let email = contactPointTextField.text, let password = passwordTextField.text else { return }
         loginManager.signIn(email: email, pass: password) {[weak self] (success) in
             guard let `self` = self else { return }
@@ -142,7 +142,7 @@ class ATCClassicLoginScreenViewController: UIViewController {
         // Successful log in with Facebook
         if let accessToken = AccessToken.current {
             // If Firebase enabled, we log the user into Firebase
-            FirebaseAuthManager().login(credential: FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)) {[weak self] (success) in
+            FirebaseAuthManager.Singleton.login(credential: FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)) {[weak self] (success) in
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {

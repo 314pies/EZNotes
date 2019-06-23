@@ -100,7 +100,7 @@ class ATCClassicSignUpViewController: UIViewController {
     }
 
     @objc func didTapSignUpButton() {
-        let signUpManager = FirebaseAuthManager()
+        let signUpManager = FirebaseAuthManager.Singleton
         if let email = emailTextField.text, let password = passwordTextField.text {
             signUpManager.createUser(email: email, password: password) {[weak self] (success) in
                 guard let `self` = self else { return }

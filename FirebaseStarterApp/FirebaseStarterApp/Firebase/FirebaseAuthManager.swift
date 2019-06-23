@@ -10,7 +10,14 @@ import FirebaseAuth
 import UIKit
 
 class FirebaseAuthManager {
-
+    static let Singleton = FirebaseAuthManager()
+    
+    var UserUID :String{
+        get{
+            return Auth.auth().currentUser?.uid ?? ""
+        }
+    }
+    
     func login(credential: AuthCredential, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().signIn(with: credential, completion: { (firebaseUser, error) in
             print(firebaseUser)
