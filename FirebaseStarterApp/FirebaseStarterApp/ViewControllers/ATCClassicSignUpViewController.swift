@@ -110,7 +110,7 @@ class ATCClassicSignUpViewController: UIViewController {
                     
                     //Switch to Notes Storyboard
                     let storyboard = UIStoryboard(name: "NotesStoryboard", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "NotesView") as UIViewController
+                    let vc = storyboard.instantiateViewController(withIdentifier: "MainMenu") as UIViewController
                     self.present(vc, animated: true, completion: nil)
                     
                 } else {
