@@ -31,35 +31,4 @@ class ProfileViewController: UIViewController , UIImagePickerControllerDelegate,
         ProfileImage.image = image
         dismiss(animated: true, completion: nil)
     }
-    
-    func getDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-    
-    func createDirectory(){
-        let fileManager = FileManager.default
-        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("images")
-        if !fileManager.fileExists(atPath: paths){
-            do {
-                try fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
-            } catch {
-                print("Couldn't create document directory")
-            }
-        }else{
-            print("Already directory created.")
-        }
-    }
-    
-    func saveImageToDocumentDirectory() {
-        let fileManager = FileManager.default
-        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("apple.jpg")
-        let image = UIImage(named: "apple.jpg")
-        
-        let imageData = UIImage.jpegData(image!)
-        fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
-    }
-    
-    
 }
