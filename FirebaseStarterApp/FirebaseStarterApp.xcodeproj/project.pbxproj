@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0613039E22C3C5A10060CEFE /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0613039D22C3C5A10060CEFE /* NoteCollectionViewCell.swift */; };
 		061E97D122C284D100A76239 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061E97D022C284D100A76239 /* ProfileViewController.swift */; };
 		06211BAF22BE244400F05D3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06211BAE22BE244400F05D3C /* GoogleService-Info.plist */; };
 		06211BBE22BE3A6C00F05D3C /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06211BBD22BE3A6C00F05D3C /* NoteTableViewCell.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0613039D22C3C5A10060CEFE /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		061E97D022C284D100A76239 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		06211BAE22BE244400F05D3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		06211BBD22BE3A6C00F05D3C /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = TableViewCells/NoteTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		1773BFC8221FA51C005C82D8 /* FirebaseStarterApp */ = {
 			isa = PBXGroup;
 			children = (
+				0613039D22C3C5A10060CEFE /* NoteCollectionViewCell.swift */,
 				06211BBD22BE3A6C00F05D3C /* NoteTableViewCell.swift */,
 				06211BAE22BE244400F05D3C /* GoogleService-Info.plist */,
 				177371E72221D7A1003E7EC4 /* Firebase */,
@@ -282,6 +285,7 @@
 				06211BD822BF3AB100F05D3C /* NoteEditorViewController.swift in Sources */,
 				06211BBE22BE3A6C00F05D3C /* NoteTableViewCell.swift in Sources */,
 				1773BFF4221FB4D8005C82D8 /* UITextField.swift in Sources */,
+				0613039E22C3C5A10060CEFE /* NoteCollectionViewCell.swift in Sources */,
 				1773BFEE221FA8CC005C82D8 /* UIColor.swift in Sources */,
 				1773BFEC221FA894005C82D8 /* UIViewController+ATCAdditions.swift in Sources */,
 				1773BFF0221FABDD005C82D8 /* UIButton.swift in Sources */,

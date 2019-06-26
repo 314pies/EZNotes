@@ -9,8 +9,17 @@
 import UIKit
 import FirebaseFirestore
 
-class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate {
 
+    @IBAction func SwitchNoteView(_ sender: Any) {
+        if(NotesTableView.isHidden){
+            NotesTableView.isHidden = false
+            NotesCollectionView.isHidden = true
+        }else{
+            NotesTableView.isHidden = true
+            NotesCollectionView.isHidden = false
+        }
+    }
     class NoteCellData{
         init(title:String,id:String,context:String) {
             self.Title = title
@@ -23,6 +32,9 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     @IBOutlet weak var NotesTableView: UITableView!
+    
+    @IBOutlet weak var NotesCollectionView: UICollectionView!
+    
     
     var Notes : Array<NoteCellData> = []
     
@@ -40,6 +52,7 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                         id: document.documentID,
                         context: document.data()["Context"] as! String ))
                     self.NotesTableView.reloadData()
+                    self.NotesCollectionView.reloadData()
                 }
             }
         }
@@ -47,7 +60,8 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell")
+        //self.NotesCollectionView.register(UICollectionView.self, forCellWithReuseIdentifier: "CollNotescell")
         // Do any additional setup after loading the view.
     }
     
@@ -99,6 +113,19 @@ class NotesViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             print("Deleted")
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+         return Notes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollNotescell", for: indexPath) as!NoteCollectionViewCell
+        let cellTitle = "-" + Notes[indexPath.row].Title;
+        cell.setTitle(titleText: cellTitle)
+        return cell
+    }
+    
     
     @IBAction func onAddNoteClicked(_ sender: Any) {
         if let controller = storyboard?.instantiateViewController(withIdentifier: "NoteEditor") {
