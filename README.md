@@ -1,6 +1,6 @@
 # EZNotes 🖋️ 
 
-An IOS cloud base notebook app.
+An iOS cloud base notebook app.
 
 ## Demos
 
